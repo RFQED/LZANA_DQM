@@ -1,0 +1,6 @@
+cmake_minimum_required (VERSION 2.8.9)
+#project(PhotonDetection)
+project(LIVMDC3MiniCMAKE)
+add_subdirectory(core)
+#add_subdirectory(MyAnalysis)
+add_subdirectory(DQmonitor)
