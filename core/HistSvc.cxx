@@ -18,6 +18,7 @@ HistSvc::HistSvc(string prefix) :
 
   SetPrefix(prefix);
 
+
   // Which scales better for large numbers of hists?
   //m_hists = new map<string, TH1*>;
   //  m_hists = new map<string, map < string,   map<int,TH1*>>>;

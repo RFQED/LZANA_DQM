@@ -1,5 +1,12 @@
 build*
 
+*/output/*
+
+*.root
+*.xml
+
+rqlib/*
+
 bin/*
 
 *~

@@ -1,2 +1,0 @@
-// absolute path to MyAnalysis directory 
-#define AbsolutePathIn "@Absolute_Path@"
