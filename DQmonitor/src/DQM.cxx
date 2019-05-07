@@ -36,8 +36,6 @@ void DQM::Execute() {
 
   // 1D Hist
   m_hists->BookFillHist("NHGPulses", 50, 0., 50., m_event->m_tpcHGPulses->nPulses);
-
-
   m_hists->BookFillHist("SingleScatters/DriftTime", 1000, 0., 1000., m_event->DriftTime()/1000.);
 
   // Official single scatters
@@ -70,6 +68,33 @@ void DQM::Execute() {
 
   for (int i = 0; i < m_event->m_tpcHGPulses->nPulses; i++) {
     m_hists->BookFillHist("Single/Width_vs_Area", 500, 0., 500., 5000, 0., 5000., m_event->m_tpcHGPulses->pulseArea_phd[i], m_event->m_tpcHGPulses->rmsWidth_ns[i]);
+
+    // Output the AreaFractionTime for each time setting
+    m_hists->BookFillHist("TPCHG_AreaFractionTime1ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime1_ns[i]);
+    m_hists->BookFillHist("TPCHG_AreaFractionTime5ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime5_ns[i]);
+    m_hists->BookFillHist("TPCHG_AreaFractionTime10ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime10_ns[i]);
+    m_hists->BookFillHist("TPCHG_AreaFractionTime25ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime25_ns[i]);
+    m_hists->BookFillHist("TPCHG_AreaFractionTime50ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime50_ns[i]);
+    m_hists->BookFillHist("TPCHG_AreaFractionTime75ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime75_ns[i]);
+    m_hists->BookFillHist("TPCHG_AreaFractionTime90ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime90_ns[i]);
+    m_hists->BookFillHist("TPCHG_AreaFractionTime95ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime95_ns[i]);
+    m_hists->BookFillHist("TPCHG_AreaFractionTime99ns", 1000, 0., 1000., m_event->m_tpcHGPulses->areaFractionTime99_ns[i]);
+
+    // output pulseAreaNeg50
+    m_hists->BookFillHist("TPCHG_pulseAreaNeg50ns_phd", 1000, 0., 1000., m_event->m_tpcHGPulses->pulseAreaNeg50ns_phd[i]);
+
+    // output pulseArea plots for different times
+    m_hists->BookFillHist("TPCHG_pulseArea50ns_phd", 1000, 0., 1000., m_event->m_tpcHGPulses->pulseArea50ns_phd[i]);
+    m_hists->BookFillHist("TPCHG_pulseArea100ns_phd", 1000, 0., 1000., m_event->m_tpcHGPulses->pulseArea100ns_phd[i]);
+    m_hists->BookFillHist("TPCHG_pulseArea200ns_phd", 1000, 0., 1000., m_event->m_tpcHGPulses->pulseArea200ns_phd[i]);
+    m_hists->BookFillHist("TPCHG_pulseArea500ns_phd", 1000, 0., 1000., m_event->m_tpcHGPulses->pulseArea500ns_phd[i]);
+    m_hists->BookFillHist("TPCHG_pulseArea1us_phd", 1000, 0., 1000., m_event->m_tpcHGPulses->pulseArea1us_phd[i]);
+    m_hists->BookFillHist("TPCHG_pulseArea2us_phd", 1000, 0., 1000., m_event->m_tpcHGPulses->pulseArea2us_phd[i]);
+    m_hists->BookFillHist("TPCHG_pulseArea5us_phd", 1000, 0., 1000., m_event->m_tpcHGPulses->pulseArea5us_phd[i]);
+
+
+
+
     if (m_event->m_tpcHGPulses->s1Probability[i] == 1) 
       m_hists->BookFillHist("Single/Width_vs_Area_S1", 500, 0., 500., 5000, 0., 5000., m_event->m_tpcHGPulses->pulseArea_phd[i], m_event->m_tpcHGPulses->rmsWidth_ns[i]);
     if (m_event->m_tpcHGPulses->s2Probability[i] == 1) 
